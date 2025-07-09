@@ -1,103 +1,92 @@
-import Image from "next/image";
+'use client';
+
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <main className="min-h-screen relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-50 via-blue-50 to-indigo-100 dark:from-slate-900 dark:via-blue-900 dark:to-indigo-900"></div>
+      
+      {/* Floating Elements */}
+      <div className="absolute top-20 left-10 w-20 h-20 bg-blue-200 dark:bg-blue-700 rounded-full opacity-20 animate-pulse"></div>
+      <div className="absolute top-40 right-20 w-32 h-32 bg-sky-200 dark:bg-sky-700 rounded-full opacity-15 animate-bounce"></div>
+      <div className="absolute bottom-20 left-1/4 w-16 h-16 bg-indigo-200 dark:bg-indigo-700 rounded-full opacity-25 animate-pulse delay-1000"></div>
+      
+      {/* Main Content */}
+      <div className="relative z-10 min-h-screen flex flex-col justify-center items-center px-6">
+        <div className="text-center max-w-2xl space-y-8 fade-in">
+          
+          {/* Weather Icons Animation */}
+          <div className="flex justify-center space-x-4 mb-8 text-6xl">
+            <span className="animate-bounce delay-100">☀️</span>
+            <span className="animate-bounce delay-200">⛅</span>
+            <span className="animate-bounce delay-300">🌧️</span>
+            <span className="animate-bounce delay-400">❄️</span>
+          </div>
+          
+          {/* Main Title */}
+          <div className="space-y-4">
+            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 dark:from-blue-400 dark:via-purple-400 dark:to-indigo-400 bg-clip-text text-transparent leading-tight">
+              Weather
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 font-thai">
+              Get the latest weather updates in your area
+            </p>
+          </div>
+          
+          {/* CTA Button */}
+          <div className="pt-8">
+            <Link
+              href="/weather"
+              className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-blue-500 to-purple-600 rounded-2xl hover:from-blue-600 hover:to-purple-700 hover:shadow-xl hover:shadow-blue-500/25 hover:-translate-y-1 active:translate-y-0 active:shadow-lg"
+            >
+              <span className="flex items-center space-x-2">
+                <span className="font-thai">Check the weather</span>
+                <span className="text-xl group-hover:translate-x-1 transition-transform duration-300">🌤️</span>
+              </span>
+              
+              {/* Button shine effect */}
+              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 group-hover:animate-pulse transition-opacity duration-300"></div>
+            </Link>
+          </div>
+          
+          {/* Feature Cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-12 max-w-3xl mx-auto">
+            <div className="glass-container p-4 text-center space-y-2 hover:scale-105 transition-transform duration-300">
+              <div className="text-2xl">🌡️</div>
+              <h3 className="font-semibold text-gray-800 dark:text-gray-200 font-thai">Temperature</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 font-thai">Accurate every hour</p>
+            </div>
+            
+            <div className="glass-container p-4 text-center space-y-2 hover:scale-105 transition-transform duration-300 delay-100">
+              <div className="text-2xl">💨</div>
+              <h3 className="font-semibold text-gray-800 dark:text-gray-200 font-thai">Wind</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 font-thai">Direction and speed</p>
+            </div>
+            
+            <div className="glass-container p-4 text-center space-y-2 hover:scale-105 transition-transform duration-300 delay-200">
+              <div className="text-2xl">💧</div>
+              <h3 className="font-semibold text-gray-800 dark:text-gray-200 font-thai">Humidity</h3>
+              <p className="text-sm text-gray-600 dark:text-gray-400 font-thai">Humidity level in the air</p>
+            </div>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+      </div>
+      
+      {/* Bottom Wave */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden">
+        <svg
+          className="relative block w-full h-20 text-blue-200 dark:text-blue-800"
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+          <path
+            d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
+            fill="currentColor"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </svg>
+      </div>
+    </main>
   );
 }
