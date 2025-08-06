@@ -55,8 +55,8 @@ export default function WeatherApp() {
         }
     };
 
-    const getConditionIcon = (condition: string) => {
-        const lower = condition.toLowerCase();
+    const getclimateIcon = (climate: string) => {
+        const lower = climate.toLowerCase();
         if (lower.includes('rain') || lower.includes('rain')) return '🌧️';
         if (lower.includes('sun') || lower.includes('sun') || lower.includes('sun')) return '☀️';
         if (lower.includes('cold') || lower.includes('cold') || lower.includes('cold')) return '❄️';
@@ -65,8 +65,8 @@ export default function WeatherApp() {
         return '🌤️';
     };
 
-    const getConditionColor = (condition: string) => {
-        const lower = condition.toLowerCase();
+    const getclimateColor = (climate: string) => {
+        const lower = climate.toLowerCase();
         if (lower.includes('rain') || lower.includes('rain')) return 'text-blue-600 dark:text-blue-400';
         if (lower.includes('sun') || lower.includes('sun') || lower.includes('sun')) return 'text-yellow-600 dark:text-yellow-400';
         if (lower.includes('cold') || lower.includes('cold') || lower.includes('cold')) return 'text-cyan-600 dark:text-cyan-400';
@@ -188,7 +188,7 @@ export default function WeatherApp() {
                                 >
                                     <div className="flex items-center justify-between">
                                         <div className="flex items-center space-x-2">
-                                            <span className="text-2xl">{getConditionIcon(item.climate)}</span>
+                                            <span className="text-2xl">{getclimateIcon(item.climate)}</span>
                                             <h3 className="font-bold text-lg text-gray-800 dark:text-gray-200">
                                                 {item.location}
                                             </h3>
@@ -205,7 +205,7 @@ export default function WeatherApp() {
 
                                         <div className="flex items-center justify-between">
                                             <span className="text-sm text-gray-600 dark:text-gray-400 font-thai">Climate</span>
-                                            <span className={`font-medium ${getConditionColor(item.climate)}`}>
+                                            <span className={`font-medium ${getclimateColor(item.climate)}`}>
                                                 {item.climate}
                                             </span>
                                         </div>
